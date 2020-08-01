@@ -39,18 +39,13 @@ class RegistrationTankForm(FlaskForm):
             DataRequired(),
             Length(min=2, max=30)])
 
-    description = StringField('Decription',
+    description = StringField('Description',
         validators = [
             DataRequired(),
             Length(min=0, max=100)])
 
     submit = SubmitField('Create Tank')
 
-    def validate_email(self, email):
-        user = Users.query.filter_by(email=email.data).first()
-
-        if user:
-            raise ValidationError('Email already in use')
     tank_select_field = SelectField(label="Tanks", coerce=int)
 
 ############### submit tests ########################
@@ -60,13 +55,13 @@ class TestsForm(FlaskForm):
     tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
 
     ammonia = DecimalField('Ammonia',
-        Places=2, Rounding=None)
+        places=2, rounding=None)
 
     nitrate = DecimalField('Nitrate',
-        Places=2, Rounding=None)
+        places=2, rounding=None)
 
     nitrite = DecimalField('Nitrite',
-        Places=2, Rounding=None)
+        places=2, rounding=None)
 
     submit = SubmitField('Create Tank')
 
@@ -78,7 +73,6 @@ class LoginForm(FlaskForm):
             DataRequired(),
             Email()])
 
-    remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
 ################# update account #########################
