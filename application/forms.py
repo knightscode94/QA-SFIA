@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Places, Rounding
+from wtforms_sqlalchemy.fields import QuerySelectField
 from application.models import Users, Tanks, Tests
 from flask_login import current_user
 
@@ -50,9 +51,14 @@ class RegistrationTankForm(FlaskForm):
 
         if user:
             raise ValidationError('Email already in use')
+    tank_select_field = SelectField(label="Tanks", coerce=int)
 
 ############### submit tests ########################
+def tank_query():
+    return Tanks.query
 class TestsForm(FlaskForm):
+    tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
+
     ammonia = DecimalField('Ammonia',
         Places=2, Rounding=None,
         validators = DataRequired())

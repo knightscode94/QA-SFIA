@@ -37,7 +37,7 @@ def login():
             return redirect(next_page)
         else:
             return redirect(url_for('home'))
-    return render_template('log_in.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=form)
 
 ### update account ####
 
@@ -82,15 +82,15 @@ def tests():
     form = TestsForm()
     if form.validate_on_submit():
         postData = Tests(
-            title = form.title.data,
-            content = form.content.data,
-            author = current_user)
+            ammonia = form.ammonia.data,
+            nitrate = form.nitrate.data,
+            nitrite = form.nitrite.data,
+            tester = current_user)
 
         db.session.add(postData)
         db.session.commit()
         return redirect(url_for('home'))
-    else:
-        print(form.errors)
+
     return render_template('test.html', title='Tests', form=form)
 
 ####### logout #############
@@ -100,3 +100,4 @@ def tests():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
