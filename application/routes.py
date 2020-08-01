@@ -4,6 +4,14 @@ from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAcco
 from application import app, db
 from application.models import Users, Tanks, Tests
 
+##############home #####################################################
+
+@app.route('/')
+@app.route('/home')
+def home():
+    postData = Tests.query.all()
+    return render_template('home.html', title='Home', tests=postData)
+
 #### Register User #########
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -19,7 +27,7 @@ def register():
     
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('post'))
+        return redirect(url_for('tests'))
     return render_template('register.html', title='Register', form=form)
 
 ##### login #####
@@ -31,7 +39,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user=Users.query.filter_by(email=form.email.data).first()
-        login_user(user, remember=form.remember.data)
+        login_user(user)
         next_page = request.args.get('next')
         if next_page:
             return redirect(next_page)
@@ -66,10 +74,10 @@ def registertank():
     form = RegistrationTankForm()
     if form.validate_on_submit():
         
-        tanks = Tanks(name=form.name.data,
+        tankdata = Tanks(name=form.name.data,
                 description=form.description.data)
     
-        db.session.add(tanks)
+        db.session.add(tankdata)
         db.session.commit()
         return redirect(url_for('tests'))
     return render_template('tanks.html', title='Tanks', form=form)

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Places, Rounding
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
 from application.models import Users, Tanks, Tests
 from flask_login import current_user
@@ -60,16 +60,13 @@ class TestsForm(FlaskForm):
     tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
 
     ammonia = DecimalField('Ammonia',
-        Places=2, Rounding=None,
-        validators = DataRequired())
+        Places=2, Rounding=None)
 
     nitrate = DecimalField('Nitrate',
-        Places=2, Rounding=None,
-        validators = DataRequired())
+        Places=2, Rounding=None)
 
     nitrite = DecimalField('Nitrite',
-        Places=2, Rounding=None,
-        validators = DataRequired())
+        Places=2, Rounding=None)
 
     submit = SubmitField('Create Tank')
 

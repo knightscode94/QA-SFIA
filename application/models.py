@@ -4,8 +4,8 @@ from datetime import datetime
 
 ############# users table sql ########################
 
-class Users(db.Model):
-    id = db.Column(db.Interger, primary_key=True, nullable=False, unique=True)
+class Users(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(25), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
@@ -17,13 +17,14 @@ class Users(db.Model):
 ########### tanks table sql #########################
 
 class Tanks(db.Model):
-    id = db.Column(db.Interger, primary_key=True, nullable=False, unique=True)
+    id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     name = db.Column(db.String(25), nullable=False, unique=True)
     description = db.Column(db.String(100))
 
 ########## tests table sql ############################
 
 class Tests(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     tank_id = db.Column(db.Integer, db.ForeignKey('tanks.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
