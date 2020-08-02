@@ -1,6 +1,6 @@
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
-from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, RegistrationTankForm
+from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
 from application import app, db
 from application.models import Users, Tanks, Tests
 
@@ -70,8 +70,8 @@ def account():
 
 @app.route('/tanks', methods=['GET', 'POST'])
 @login_required
-def registertank():
-    form = RegistrationTankForm()
+def tanks():
+    form = TanksForm()
     if form.validate_on_submit():
         
         tankdata = Tanks(name=form.name.data,
@@ -99,7 +99,7 @@ def tests():
         db.session.commit()
         return redirect(url_for('home'))
 
-    return render_template('test.html', title='Tests', form=form)
+    return render_template('tests.html', title='Tests', form=form)
 
 ####### logout #############
 

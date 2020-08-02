@@ -33,19 +33,23 @@ class RegistrationForm(FlaskForm):
 
 ############ register tanks ##############
 
-class RegistrationTankForm(FlaskForm):
+class TanksForm(FlaskForm):
     name = StringField('Name',
         validators = [
             DataRequired(),
             Length(min=2, max=30)])
 
     description = StringField('Description',
-        validators = [
-            DataRequired(),
-            Length(min=0, max=100)])
+        validators = [ 
+            Length(max=100)])
 
     submit = SubmitField('Create Tank')
 
+    def validate_name(self, name):
+        name = Tanks.query.filter_by(name=name.data).first()
+
+        if name:
+            raise ValidationError('name already in use')
     tank_select_field = SelectField(label="Tanks", coerce=int)
 
 ############### submit tests ########################
@@ -63,7 +67,7 @@ class TestsForm(FlaskForm):
     nitrite = DecimalField('Nitrite',
         places=2, rounding=None)
 
-    submit = SubmitField('Create Tank')
+    submit = SubmitField('Submit test')
 
 ################ login form ##################
 

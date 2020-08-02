@@ -19,13 +19,6 @@
 	<div class="form-group">
 	    {{ form.description.label }}
 	    {{ form.description }}
-	    {% if form.description.errors %}
-	    <div class="error">
-	        {% for error in form.description.errors %}
-	            <span>{{ error }}</span>
-	        {% endfor %}
-	    </div>
-	    {% endif %}
 	</div>
 	<br>
             <div class='form_group'>
