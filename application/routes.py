@@ -73,12 +73,13 @@ def account():
 def tanks():
     form = TanksForm()
     if form.validate_on_submit():
-        tankdata = Tanks(name=form.name.data, description=form.description.data)
+        tankdata = Tanks(
+            name=form.name.data, 
+            description=form.description.data)
+
         db.session.add(tankdata)
         db.session.commit()
         return redirect(url_for('home'))
-    else:
-        print(form.errors)
     return render_template('tanks.html', title='Tanks', form=form)
 
 #### tests #####
