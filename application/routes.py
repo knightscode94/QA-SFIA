@@ -77,6 +77,8 @@ def tanks():
         db.session.add(tankdata)
         db.session.commit()
         return redirect(url_for('home'))
+    else:
+        print(form.errors)
     return render_template('tanks.html', title='Tanks', form=form)
 
 #### tests #####
