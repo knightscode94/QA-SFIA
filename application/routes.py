@@ -75,8 +75,8 @@ def tanks():
     if form.validate_on_submit():
         
         tankdata = Tanks(
-            name=form.name.data,
-            description=form.description.data)
+                    name=form.name.data,
+                    description=form.description.data)
     
         db.session.add(tankdata)
         db.session.commit()
