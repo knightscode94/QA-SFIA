@@ -1,16 +1,8 @@
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
-from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
+from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, RegistrationTankForm
 from application import app, db
 from application.models import Users, Tanks, Tests
-
-##############home #####################################################
-
-@app.route('/')
-@app.route('/home')
-def home():
-    postData = Tests.query.all()
-    return render_template('home.html', title='Home', tests=postData)
 
 #### Register User #########
 
@@ -27,7 +19,7 @@ def register():
     
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('tests'))
+        return redirect(url_for('post'))
     return render_template('register.html', title='Register', form=form)
 
 ##### login #####
@@ -39,7 +31,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user=Users.query.filter_by(email=form.email.data).first()
-        login_user(user)
+        login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
         if next_page:
             return redirect(next_page)
@@ -70,15 +62,14 @@ def account():
 
 @app.route('/tanks', methods=['GET', 'POST'])
 @login_required
-def tanks():
-    form = TanksForm()
+def registertank():
+    form = RegistrationTankForm()
     if form.validate_on_submit():
         
-        tankdata = Tanks(
-            name=form.name.data,
-            description=form.description.data)
+        tanks = Tanks(name=form.name.data,
+                description=form.description.data)
     
-        db.session.add(tankdata)
+        db.session.add(tanks)
         db.session.commit()
         return redirect(url_for('tests'))
     return render_template('tanks.html', title='Tanks', form=form)
@@ -100,7 +91,7 @@ def tests():
         db.session.commit()
         return redirect(url_for('home'))
 
-    return render_template('tests.html', title='Tests', form=form)
+    return render_template('test.html', title='Tests', form=form)
 
 ####### logout #############
 
