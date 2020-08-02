@@ -27,7 +27,7 @@ def register():
     
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('tests'))
+        return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
 ##### login #####
@@ -80,7 +80,7 @@ def tanks():
     
         db.session.add(tankdata)
         db.session.commit()
-        return redirect(url_for('tests'))
+        return redirect(url_for('home'))
     return render_template('tanks.html', title='Tanks', form=form)
 
 #### tests #####
