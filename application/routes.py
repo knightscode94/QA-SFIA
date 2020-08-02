@@ -84,7 +84,7 @@ def tanks():
     return render_template('tanks.html', title='Tanks', form=form)
 
 #### tests #####
-
+'''
 @app.route('/tests', methods=['GET', 'POST'])
 @login_required
 def tests():
@@ -101,7 +101,7 @@ def tests():
         return redirect(url_for('home'))
 
     return render_template('tests.html', title='Tests', form=form)
-
+'''
 ####### logout #############
 
 @app.route("/logout")

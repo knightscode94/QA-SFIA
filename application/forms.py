@@ -53,6 +53,7 @@ class TanksForm(FlaskForm):
     tank_select_field = SelectField(label="Tanks", coerce=int)
 
 ############### submit tests ########################
+'''
 def tank_query():
     return Tanks.query
 class TestsForm(FlaskForm):
@@ -68,7 +69,7 @@ class TestsForm(FlaskForm):
         places=2, rounding=None)
 
     submit = SubmitField('Submit test')
-
+'''
 ################ login form ##################
 
 class LoginForm(FlaskForm):
