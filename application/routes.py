@@ -76,17 +76,17 @@ def account():
 @login_required
 def tanks():
     form = TanksForm()
-    if form.validate_on_submit():
 
-        tankdata = Tanks(name=form.name.data,
-                         description=form.description.data)
+    tankdata = Tanks(name=form.name.data,
+                     description=form.description.data)
 
-        db.session.add(tankdata)
-        db.session.commit()
-        return redirect(url_for('home'))
+    db.session.add(tankdata)
+    db.session.commit()
+    return redirect(url_for('home'))
     return render_template('tanks.html', title='Tanks', form=form)
 
 #### tests #####
+
 
 '''
 @app.route('/tests', methods=['GET', 'POST'])
@@ -107,6 +107,7 @@ def tests():
     return render_template('tests.html', title='Tests', form=form)
 '''
 ####### logout #############
+
 
 @app.route("/logout")
 @login_required

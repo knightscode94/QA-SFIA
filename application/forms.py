@@ -47,11 +47,6 @@ class TanksForm(FlaskForm):
 
     submit = SubmitField('Create Tank')
 
-    def validate_name(self, name):
-        name = Tanks.query.filter_by(name=name.data).first()
-
-        if name:
-            raise ValidationError('name already in use')
     tank_select_field = SelectField(label="Tanks", coerce=int)
 
 
@@ -74,6 +69,7 @@ class TestsForm(FlaskForm):
     submit = SubmitField('Submit test')
 '''
 ################ login form ##################
+
 
 class LoginForm(FlaskForm):
     email = StringField('Email',
