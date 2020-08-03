@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+<p>Create a tank</p>
+<div class='form'>
+	<form method='POST' action=''>
+		{{ form.hidden_tag() }}
+		{{ form.name.label }}
+		{{ form.name }}
+		{% if form.name.errors %}
+		<div class="error">
+			{% for error in form.name.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<br>
+		{{ form.description.label }}
+		{{ form.description }}
+		<br>
+		<div class='form_group'>
+			{{ form.submit }}
+		</div>
+	</form>
+</div>
+{% endblock %}
