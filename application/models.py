@@ -20,7 +20,7 @@ class Users(db.Model, UserMixin):
 
 class Tanks(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
-    name = db.Column(db.String(25), nullable=False, unique=True)
+    name = db.Column(db.String(25), nullable=True, unique=True)
     description = db.Column(db.String(100), nullable=True)
 
 
