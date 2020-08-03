@@ -77,7 +77,7 @@ def account():
 def tanks():
     form = TanksForm()
     if form.submit():
-        name = Tanks.query.filter_by(name=form.name.data).first()
+        tanks = Tanks.query.filter_by(name=form.name.data).first()
         tankdata = Tanks(name=form.name.data,
                          description=form.description.data)
 
