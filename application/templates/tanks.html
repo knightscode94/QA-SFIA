@@ -9,13 +9,6 @@
 		<br>
 		{{ form.description.label }}
 		{{ form.description }}
-		{% if form.name.errors %}
-		<div class="error">
-			{% for error in form.name.errors %}
-			<span>{{ error }}</span>
-			{% endfor %}
-		</div>
-		{% endif %}
 		<br>
 		{{ form.submit }}
 	</form>
