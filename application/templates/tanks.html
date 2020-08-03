@@ -6,9 +6,12 @@
 		{{ form.hidden_tag() }}
 		{{ form.name.label }}
 		{{ form.name }}
-		{% for error in form.first_name.errors %}
-		<span>{{ error }}</span>
-		{% endfor %}
+		{% if form.first_name.errors %}
+		<div class="error">
+			{% for error in form.name.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
 		{% endif %}
 		<br>
 		{{ form.description.label }}
