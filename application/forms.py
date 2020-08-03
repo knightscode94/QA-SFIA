@@ -39,7 +39,8 @@ class TanksForm(FlaskForm):
     name = StringField('Name',
                        validators=[
                            DataRequired(),
-                           Length(min=2, max=30)])
+                           Length(min=2, max=30),
+                           Name()])
 
     description = StringField('Description',
                               validators=[
@@ -47,7 +48,13 @@ class TanksForm(FlaskForm):
 
     submit = SubmitField('Create Tank')
 
-    tank_select_field = SelectField(label="Tanks", coerce=int)
+    def validate_name(self, name):
+        tanks = Tanks.query.filter_by(name=name.data).first()
+
+        if tanks:
+            raise ValidationError('Name already in use')
+
+   ## tank_select_field = SelectField(label="Tanks", coerce=int)##
 
 
 ############### submit tests ########################
