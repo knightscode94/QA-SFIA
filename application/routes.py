@@ -76,7 +76,7 @@ def account():
 @login_required
 def tanks():
     form = TanksForm()
-    if form.submit():
+    if form.validate_on_submit():
         tanks = Tanks.query.filter_by(name=form.name.data).first()
         tankdata = Tanks(name=form.name.data,
                          description=form.description.data)
