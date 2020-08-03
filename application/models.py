@@ -4,6 +4,7 @@ from datetime import datetime
 
 ############# users table sql ########################
 
+
 class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     first_name = db.Column(db.String(20), nullable=False)
@@ -15,6 +16,7 @@ class Users(db.Model, UserMixin):
             'Name: ', self.first_name, ' ', self.last_name])
 
 ########### tanks table sql #########################
+
 
 class Tanks(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
@@ -32,6 +34,7 @@ class Tests(db.Model):
     ammonia = db.Column(db.Integer, nullable=False)
     nitrate = db.Column(db.Integer, nullable=False)
     nitrite = db.Column(db.Integer, nullable=False)
+
 
 @login_manager.user_loader
 def load_user(id):

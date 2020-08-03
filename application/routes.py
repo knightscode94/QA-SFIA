@@ -1,10 +1,11 @@
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
-from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
+from application.forms import RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
 from application import app, db
 from application.models import Users, Tanks, Tests
 
 ##############home #####################################################
+
 
 @app.route('/')
 @app.route('/home')
@@ -14,17 +15,18 @@ def home():
 
 #### Register User #########
 
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     if form.validate_on_submit():
-        
+
         user = Users(first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                email=form.email.data)
-    
+                     last_name=form.last_name.data,
+                     email=form.email.data)
+
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('tests'))
@@ -32,13 +34,14 @@ def register():
 
 ##### login #####
 
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user=Users.query.filter_by(email=form.email.data).first()
+        user = Users.query.filter_by(email=form.email.data).first()
         login_user(user)
         next_page = request.args.get('next')
         if next_page:
@@ -48,6 +51,7 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 ### update account ####
+
 
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
@@ -73,10 +77,10 @@ def account():
 def tanks():
     form = TanksForm()
     if form.validate_on_submit():
-        
+
         tankdata = Tanks(name=form.name.data,
-                description=form.description.data)
-    
+                         description=form.description.data)
+
         db.session.add(tankdata)
         db.session.commit()
         return redirect(url_for('tests'))
@@ -84,23 +88,24 @@ def tanks():
 
 #### tests #####
 
+'''
 @app.route('/tests', methods=['GET', 'POST'])
 @login_required
 def tests():
     form = TestsForm()
     if form.validate_on_submit():
         postData = Tests(
-            ammonia = form.ammonia.data,
-            nitrate = form.nitrate.data,
-            nitrite = form.nitrite.data,
-            tester = current_user)
+            ammonia=form.ammonia.data,
+            nitrate=form.nitrate.data,
+            nitrite=form.nitrite.data,
+            tester=current_user)
 
         db.session.add(postData)
         db.session.commit()
         return redirect(url_for('home'))
 
     return render_template('tests.html', title='Tests', form=form)
-
+'''
 ####### logout #############
 
 @app.route("/logout")
@@ -108,4 +113,3 @@ def tests():
 def logout():
     logout_user()
     return redirect(url_for('login'))
-

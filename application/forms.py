@@ -7,21 +7,22 @@ from flask_login import current_user
 
 ##### register form #################
 
+
 class RegistrationForm(FlaskForm):
     first_name = StringField('First Name',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=30)])
+                             validators=[
+                                 DataRequired(),
+                                 Length(min=2, max=30)])
 
     last_name = StringField('Last Name',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=30)])
+                            validators=[
+                                DataRequired(),
+                                Length(min=2, max=30)])
 
     email = StringField('Email',
-        validators = [
-            DataRequired(),
-            Email()])
+                        validators=[
+                            DataRequired(),
+                            Email()])
 
     submit = SubmitField('Create Account')
 
@@ -33,15 +34,16 @@ class RegistrationForm(FlaskForm):
 
 ############ register tanks ##############
 
+
 class TanksForm(FlaskForm):
     name = StringField('Name',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=30)])
+                       validators=[
+                           DataRequired(),
+                           Length(min=2, max=30)])
 
     description = StringField('Description',
-        validators = [ 
-            Length(max=100)])
+                              validators=[
+                                  Length(max=100)])
 
     submit = SubmitField('Create Tank')
 
@@ -52,7 +54,9 @@ class TanksForm(FlaskForm):
             raise ValidationError('name already in use')
     tank_select_field = SelectField(label="Tanks", coerce=int)
 
+
 ############### submit tests ########################
+'''
 def tank_query():
     return Tanks.query
 class TestsForm(FlaskForm):
@@ -68,38 +72,39 @@ class TestsForm(FlaskForm):
         places=2, rounding=None)
 
     submit = SubmitField('Submit test')
-
+'''
 ################ login form ##################
 
 class LoginForm(FlaskForm):
     email = StringField('Email',
-        validators=[
-            DataRequired(),
-            Email()])
+                        validators=[
+                            DataRequired(),
+                            Email()])
 
     submit = SubmitField('Login')
 
 ################# update account #########################
 
+
 class UpdateAccountForm(FlaskForm):
     first_name = StringField('First Name',
-        validators=[
-            DataRequired(),
-            Length(min=4, max=20)
-        ])
+                             validators=[
+                                 DataRequired(),
+                                 Length(min=4, max=20)
+                             ])
     last_name = StringField('Last Name',
-        validators=[
-            DataRequired(),
-            Length(min=4, max=25)
-        ])
+                            validators=[
+                                DataRequired(),
+                                Length(min=4, max=25)
+                            ])
     email = StringField('Email',
-        validators=[
-            DataRequired(),
-            Email()
-        ])
+                        validators=[
+                            DataRequired(),
+                            Email()
+                        ])
     submit = SubmitField('Update')
 
-    def validate_email(self,email):
+    def validate_email(self, email):
         if email.data != current_user.email:
             user = Users.query.filter_by(email=email.data).first()
             if user:
