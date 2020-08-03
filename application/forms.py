@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Name
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
 from application.models import Users, Tanks, Tests
 from flask_login import current_user
@@ -39,8 +39,7 @@ class TanksForm(FlaskForm):
     name = StringField('Name',
                        validators=[
                            DataRequired(),
-                           Length(min=2, max=30),
-                           Name()])
+                           Length(min=2, max=30)])
 
     description = StringField('Description',
                               validators=[
