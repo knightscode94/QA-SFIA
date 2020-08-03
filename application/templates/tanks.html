@@ -6,6 +6,10 @@
 		{{ form.hidden_tag() }}
 		{{ form.name.label }}
 		{{ form.name }}
+		{% for error in form.first_name.errors %}
+		<span>{{ error }}</span>
+		{% endfor %}
+		{% endif %}
 		<br>
 		{{ form.description.label }}
 		{{ form.description }}
