@@ -1,5 +1,5 @@
 ## import flask, sql
-from application import routes, db
+from application import routes
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
