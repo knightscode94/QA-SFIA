@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
-from application.models import Users, Tanks, Tests
+from application.models import Users, Tests, Tanks
 from flask_login import current_user
 
 ##### register form #################
