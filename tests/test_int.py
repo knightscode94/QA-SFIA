@@ -59,8 +59,8 @@ class TestRegistration(TestBase):
             test_admin_last_name)
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         time.sleep(1)
-        # Assert that browser redirects to login page
-        assert url_for('login') in self.driver.current_url
+        # Assert that browser redirects to home page
+        assert url_for('home') in self.driver.current_url
 
 '''
 class TestLogin(TestBase):
