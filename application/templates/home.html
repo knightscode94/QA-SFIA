@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<p>Here are all the test results for each tank</p>
+{% for tank in tanks %}
+<div>
+    <h3>{{ tank.name }}</h3>
+    <span><i>{{ tank.author }}</i></span>
+    <br>
+    <span>Ammonia <i>{{ tank.ammonia }}</i></span>
+    <br>
+    <span>Nitrite <i>{{ tank.nitrite }}</i></span>
+    <br>
+    <span>Nitrate <i>{{ tank.nitrate }}</i></span>
+    <br>
+    <span>on the <i>{{ tank.date }}</i></span>
+</div>
+{% endfor %}
+{% endblock body_content %}
