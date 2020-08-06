@@ -97,7 +97,8 @@ def tests():
             ammonia=form.ammonia.data,
             nitrate=form.nitrate.data,
             nitrite=form.nitrite.data,
-            user_id=current_user)
+            user_id=current_user,
+            tank_id=form.tank_name.data)
 
         db.session.add(postData)
         db.session.commit()
