@@ -61,9 +61,9 @@ class TanksForm(FlaskForm):
 def tank_query():
     tanks=Tanks.query.all()
     options = []
-    for item in Tanks:
+    for item in tanks:
         name = item.name
-        option.append(name)
+        options[].append(name)
     return options
 
 class TestsForm(FlaskForm):
