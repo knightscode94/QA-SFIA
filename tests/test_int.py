@@ -57,15 +57,12 @@ class TestRegistration(TestBase):
             test_admin_first_name)
         self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(
             test_admin_last_name)
-        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(
-            test_admin_password)
-        self.driver.find_element_by_xpath('//*[@id="confirm_password"]').send_keys(
-            test_admin_password)
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         time.sleep(1)
         # Assert that browser redirects to login page
         assert url_for('login') in self.driver.current_url
 
+'''
 class TestLogin(TestBase):
     def test_login(self):
         self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[3]").click()
@@ -75,6 +72,6 @@ class TestLogin(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()        
         time.sleep(2)
         assert url_for('home') in self.driver.current_url
-
+'''
 if __name__ == '__main__':
     unittest.main(port=5000)
