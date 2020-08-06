@@ -66,7 +66,7 @@ def tank_query():
 
 
 class TestsForm(FlaskForm):
-    tank_name = SelectField("Tanks", choices=[])
+    tank_name = SelectField("Tanks", choices=tank_query())
 
     ammonia = DecimalField('Ammonia',
                            places=2, rounding=None)
