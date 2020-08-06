@@ -53,30 +53,29 @@ class TanksForm(FlaskForm):
         if tanks:
             raise ValidationError('Name already in use')
 
-    tank_select_field = SelectField(label="Tanks", coerce=int)
-
 
 ############### submit tests ########################
 
 def tank_query():
-    tanks=Tanks.query.all()
+    tanks = Tanks.query.all()
     options = []
     for item in tanks:
         name = item.name
         options.append(name)
     return options
 
+
 class TestsForm(FlaskForm):
-    tank_name = SelectField("Tanks",choices=tank_query())
+    tank_name = SelectField("Tanks", choices=tank_query())
 
     ammonia = DecimalField('Ammonia',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     nitrate = DecimalField('Nitrate',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     nitrite = DecimalField('Nitrite',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     submit = SubmitField('Submit test')
 
