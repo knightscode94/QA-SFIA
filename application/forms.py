@@ -53,7 +53,7 @@ class TanksForm(FlaskForm):
         if tanks:
             raise ValidationError('Name already in use')
 
-   tank_select_field = SelectField(label="Tanks", coerce=int)##
+    tank_select_field = SelectField(label="Tanks", coerce=int)
 
 
 ############### submit tests ########################
