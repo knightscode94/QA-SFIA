@@ -30,8 +30,8 @@ class TestBase(LiveServerTestCase):
         self.driver = webdriver.Chrome(executable_path="/home/mrt_s_jackson/chromedriver", chrome_options=chrome_options)
         self.driver.get("http://localhost:5000")
         db.session.commit()
-        db.drop_table('Tanks')
-        db.drop_table('Users')
+        db.drop_table('tanks')
+        db.drop_table('users')
         db.create_all()
 
     def tearDown(self):
