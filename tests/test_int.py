@@ -40,3 +40,49 @@ class TestBase(LiveServerTestCase):
     def test_server_is_up_and_running(self):
         response = urlopen("http://localhost:5000")
         self.assertEqual(response.code, 200)
+
+class TestRegistration(TestBase):
+    def test_registration(self):
+        """
+        Test that a user can create an account using the registration form
+        if all fields are filled out correctly, and that they will be 
+        redirected to the login page
+        """
+        # Click register menu link
+        self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[2]").click()
+        time.sleep(1)
+        # Fill in registration form
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(
+            test_admin_first_name)
+        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(
+            test_admin_last_name)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        time.sleep(1)
+        # Assert that browser redirects to home page
+        assert url_for('home') in self.driver.current_url
+
+class TestLogin(TestBase):
+    def test_login(self):
+        self.driver.find_element_by_xpath("/html/body/a[3]").click()
+        time.sleep(1)
+
+        # Fill in registration form
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(
+            test_admin_first_name)
+        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(
+            test_admin_last_name)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        time.sleep(1)
+
+        self.driver.find_element_by_xpath('/html/body/a[4]').click()
+        time.sleep(1)
+
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()        
+        time.sleep(2)
+        assert url_for('home') in self.driver.current_url
+
+if __name__ == '__main__':
+    unittest.main(port=5000)
