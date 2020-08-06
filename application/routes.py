@@ -98,3 +98,14 @@ def tanks():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+############## delete ####################
+@app.route('/account/delete', methods=['GET', 'POST'])
+@login_required
+def account_delete():
+    user = current_user.id
+    account = Users.query.filter_by(id=user).first()
+    logout_user()
+    db.session.delete(account)
+    db.session.commit()
+    return redirect(url_for('register'))
