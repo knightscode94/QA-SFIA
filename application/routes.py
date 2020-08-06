@@ -2,7 +2,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
 from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
 from application import app, db
-from application.models import Users
+from application.models import Users, Tanks, Tests
 
 ##############home #####################################################
 
