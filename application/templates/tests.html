@@ -1,22 +1,21 @@
 {% extends "layout.html" %}
 {% block body_content %}
-<!------   <div class='form'>
+<div class='form'>
         <form method='POST' action=''>
 	{{ form.hidden_tag() }}
-            {{ form.title.label }}
-            {{ form.title }}
+            {{ form.tank_name.label }}
+            {{ form.tank_name }}
             <br>
-            {{ form.content.label }}
-            {{ form.content }}
-	    {% if form.content.errors %}
-            <div class="error">
-            {% for error in form.content.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-            </div>
-            {% endif %}
+            {{ form.ammonia.label }}
+            {{ form.ammonia }}
+            <br>
+            {{ form.nitrate.label }}
+            {{ form.nitrate }}
+            <br>
+            {{ form.nitrite.label }}
+            {{ form.nitrite }}
             <br>
             {{ form.submit }}
         </form> 
-    </div> -->
+    </div>
 {% endblock %}
