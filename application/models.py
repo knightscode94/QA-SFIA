@@ -17,6 +17,7 @@ class Users(db.Model, UserMixin):
 
 ########### tanks table sql #########################
 
+
 class Tanks(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     name = db.Column(db.String(25), nullable=True, unique=True)
@@ -25,6 +26,7 @@ class Tanks(db.Model):
     ammonia = db.Column(db.Float, nullable=False)
     nitrate = db.Column(db.Float, nullable=False)
     nitrite = db.Column(db.Float, nullable=False)
+
 
 @login_manager.user_loader
 def load_user(id):

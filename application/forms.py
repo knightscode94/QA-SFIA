@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
+from wtforms import StringField, SubmitField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
 from application.models import Users, Tanks
@@ -40,7 +40,6 @@ class TanksForm(FlaskForm):
                        validators=[
                            DataRequired(),
                            Length(min=2, max=30)])
-    user_ID=current_user
 
     description = StringField('Description',
                               validators=[
@@ -61,7 +60,6 @@ class TanksForm(FlaskForm):
 
         if tanks:
             raise ValidationError('Name already in use')
-
 
 ################ login form ##################
 
