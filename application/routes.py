@@ -1,8 +1,8 @@
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
-from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
+from application.forms import RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
 from application import app, db
-from application.models import Users, Tanks, Tests
+from application.models import Users, Tanks
 
 ##############home #####################################################
 
@@ -70,7 +70,7 @@ def account():
     return render_template('account.html', title='Account', form=form)
 
 
-#### create tank ####
+#### create tests ####
 
 @app.route('/tanks', methods=['GET', 'POST'])
 @login_required
@@ -79,33 +79,17 @@ def tanks():
     if form.validate_on_submit():
         tanks = Tanks.query.filter_by(name=form.name.data).first()
         tankdata = Tanks(name=form.name.data,
-                         description=form.description.data)
+                         description=form.description.data,
+                         ammonia=form.ammonia.data,
+                         nitrate=form.nitrate.data,
+                         nitrite=form.nitrite.data,
+                         user_id=current_user,)
 
         db.session.add(tankdata)
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('tanks.html', title='Tanks', form=form)
 
-#### tests #####
-
-@app.route('/tests', methods=['GET', 'POST'])
-@login_required
-def tests():
-    form = TestsForm()
-    if form.validate_on_submit():
-        postData = Tests(
-            ammonia=form.ammonia.data,
-            nitrate=form.nitrate.data,
-            nitrite=form.nitrite.data,
-            user_id=current_user,
-            tank_id=form.tank_name.data)
-
-        db.session.add(postData)
-        db.session.commit()
-        return redirect(url_for('home'))
-
-    return render_template('tests.html', title='Tests', form=form)
-    
 ####### logout #############
 
 

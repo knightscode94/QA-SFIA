@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
-from application.models import Users, Tanks, Tests
+from application.models import Users, Tanks
 from flask_login import current_user
 
 ##### register form #################
@@ -44,29 +44,6 @@ class TanksForm(FlaskForm):
     description = StringField('Description',
                               validators=[
                                   Length(max=100)])
-
-    submit = SubmitField('Create Tank')
-
-    def validate_name(self, name):
-        tanks = Tanks.query.filter_by(name=name.data).first()
-
-        if tanks:
-            raise ValidationError('Name already in use')
-
-
-############### submit tests ########################
-
-def tank_query():
-    tanks = Tanks.query.all()
-    options = []
-    for item in tanks:
-        name = item.name
-        options.append(name)
-    return options
-
-class TestsForm(FlaskForm):
-    tank_name = SelectField("Tanks", choices=tank_query())
-
     ammonia = DecimalField('Ammonia',
                            places=2, rounding=None)
 
@@ -76,7 +53,14 @@ class TestsForm(FlaskForm):
     nitrite = DecimalField('Nitrite',
                            places=2, rounding=None)
 
-    submit = SubmitField('Submit test')
+    submit = SubmitField('Create Tank Test')
+
+    def validate_name(self, name):
+        tanks = Tanks.query.filter_by(name=name.data).first()
+
+        if tanks:
+            raise ValidationError('Name already in use')
+
 
 ################ login form ##################
 
