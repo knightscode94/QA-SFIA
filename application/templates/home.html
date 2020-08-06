@@ -4,10 +4,10 @@
 {% for tank in tanks %}
 <div>
     <h3>{{ tank.name }}</h3>
-    <span>test by <i>{{ user.first_name }} {{ user.last_name }}</i></span>
-    <span>Ammonia <i>{{ tank.ammonia }}</i></span>
-    <span>Nitrite <i>{{ tank.nitrite }}</i></span>
-    <span>Nitrate <i>{{ tank.nitrate }}</i></span>
+    <span>test by <i>{{ users.first_name }} {{ users.last_name }}</i></span>
+    <span>Ammonia <i>{{ tanks.ammonia }}</i></span>
+    <span>Nitrite <i>{{ tanks.nitrite }}</i></span>
+    <span>Nitrate <i>{{ tanks.nitrate }}</i></span>
     <span>on the <i>{{ post.date_posted }}</i></span>
 </div>
 {% endfor %}
