@@ -32,7 +32,7 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('Email already in use')
 
-############ register tanks ##############
+############ register tanks tests ##############
 
 
 class TanksForm(FlaskForm):
@@ -40,6 +40,7 @@ class TanksForm(FlaskForm):
                        validators=[
                            DataRequired(),
                            Length(min=2, max=30)])
+    user_ID=current_user
 
     description = StringField('Description',
                               validators=[
