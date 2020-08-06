@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body_content %}
 <p>Here are all the test results for each tank</p>
-{% for test in tests %}
+{% for tank in tanks %}
 <div>
     <h3>{{ tank.name }}</h3>
     <span>test by <i>{{ user.first_name }} {{ user.last_name }}</i></span>
