@@ -16,7 +16,7 @@ class Users(db.Model, UserMixin):
             'Name: ', self.first_name, ' ', self.last_name])
 
 ########### tanks table sql #########################
-
+'''
 
 class Tanks(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
@@ -38,3 +38,4 @@ class Tests(db.Model):
 @login_manager.user_loader
 def load_user(id):
     return Users.query.get(int(id))
+'''
