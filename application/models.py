@@ -27,6 +27,7 @@ class Tanks(db.Model):
     ammonia = db.Column(db.Float, nullable=False)
     nitrate = db.Column(db.Float, nullable=False)
     nitrite = db.Column(db.Float, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 @login_manager.user_loader
 def load_user(id):
