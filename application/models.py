@@ -24,7 +24,15 @@ class Tanks(db.Model):
     description = db.Column(db.String(100), nullable=True)
 
 
+    def __repr__(self):
+        return ''.join([
+            'Tank_ID: ', self.id, '\r\n',
+            'Name: ', self.name, '\r\n',
+            'Description: ', self.description
+        ])
+
 ########## tests table sql ############################
+
 
 class Tests(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
@@ -34,6 +42,14 @@ class Tests(db.Model):
     ammonia = db.Column(db.Float, nullable=False)
     nitrate = db.Column(db.Float, nullable=False)
     nitrite = db.Column(db.Float, nullable=False)
+
+
+    def __repr__(self):
+        return ''.join([
+            'Ammonia: ', self.ammonia, '\r\n',
+            'Nitrate: ', self.nitrate, '\r\n',
+            'Nitrite: ', self.nitrite
+        ])
 
 
 @login_manager.user_loader
