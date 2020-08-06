@@ -59,7 +59,7 @@ class TanksForm(FlaskForm):
 ############### submit tests ########################
 
 def tank_query():
-    return Tanks.query
+    return Tanks.query(Tanks.name)
     
 class TestsForm(FlaskForm):
     tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
