@@ -10,8 +10,8 @@ from application.models import Users, Tanks
 @app.route('/')
 @app.route('/home')
 def home():
-    postData = Tests.query.all()
-    return render_template('home.html', title='Home', tests=postData)
+    postData = Tanks.query.all()
+    return render_template('home.html', title='Home', tanks=postData)
 
 #### Register User #########
 
