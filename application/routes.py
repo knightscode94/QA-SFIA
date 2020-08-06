@@ -1,8 +1,8 @@
 from flask_login import login_user, current_user, logout_user, login_required
 from flask import render_template, redirect, url_for, request
-from application.forms import RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
+from application.forms import TestsForm, RegistrationForm, LoginForm, UpdateAccountForm, TanksForm
 from application import app, db
-from application.models import Users, Tanks, Tests
+from application.models import Users, Tests, Tanks
 
 ##############home #####################################################
 
@@ -97,7 +97,7 @@ def tests():
             ammonia=form.ammonia.data,
             nitrate=form.nitrate.data,
             nitrite=form.nitrite.data,
-            tester=current_user)
+            user_id=current_user)
 
         db.session.add(postData)
         db.session.commit()

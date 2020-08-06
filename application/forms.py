@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms_sqlalchemy.fields import QuerySelectField
-from application.models import Users, Tanks, Tests
+from application.models import Users, Tests, Tanks
 from flask_login import current_user
 
 ##### register form #################
@@ -53,24 +53,29 @@ class TanksForm(FlaskForm):
         if tanks:
             raise ValidationError('Name already in use')
 
-   tank_select_field = SelectField(label="Tanks", coerce=int)##
-
 
 ############### submit tests ########################
 
 def tank_query():
-    return Tanks.query
+    tanks = Tanks.query.all()
+    options = []
+    for item in tanks:
+        name = item.name
+        options.append(name)
+    return options
+
+
 class TestsForm(FlaskForm):
-    tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
+    tank_name = SelectField("Tanks", choices=tank_query())
 
     ammonia = DecimalField('Ammonia',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     nitrate = DecimalField('Nitrate',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     nitrite = DecimalField('Nitrite',
-        places=2, rounding=None)
+                           places=2, rounding=None)
 
     submit = SubmitField('Submit test')
 
