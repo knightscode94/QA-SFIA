@@ -10,6 +10,7 @@ class Users(db.Model, UserMixin):
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(25), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
+    tanks = db.relationship('Tanks', backref='author', lazy=True)
 
     def __repr__(self):
         return ''.join([
@@ -26,7 +27,6 @@ class Tanks(db.Model):
     ammonia = db.Column(db.Float, nullable=False)
     nitrate = db.Column(db.Float, nullable=False)
     nitrite = db.Column(db.Float, nullable=False)
-
 
 @login_manager.user_loader
 def load_user(id):

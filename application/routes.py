@@ -82,7 +82,8 @@ def tanks():
                          description=form.description.data,
                          ammonia=form.ammonia.data,
                          nitrate=form.nitrate.data,
-                         nitrite=form.nitrite.data)
+                         nitrite=form.nitrite.data,
+                         author = current_user)
 
         db.session.add(tankdata)
         db.session.commit()
