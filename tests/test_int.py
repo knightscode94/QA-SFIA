@@ -49,7 +49,7 @@ class TestRegistration(TestBase):
         redirected to the login page
         """
         # Click register menu link
-        self.driver.find_element_by_xpath("/html/body/a[3]").click()
+        self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[2]").click()
         time.sleep(1)
         # Fill in registration form
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
