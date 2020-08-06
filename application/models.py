@@ -31,9 +31,9 @@ class Tests(db.Model):
     tank_id = db.Column(db.Integer, db.ForeignKey('tanks.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    ammonia = db.Column(db.Integer, nullable=False)
-    nitrate = db.Column(db.Integer, nullable=False)
-    nitrite = db.Column(db.Integer, nullable=False)
+    ammonia = db.Column(db.Float, nullable=False)
+    nitrate = db.Column(db.Float, nullable=False)
+    nitrite = db.Column(db.Float, nullable=False)
 
 
 @login_manager.user_loader
