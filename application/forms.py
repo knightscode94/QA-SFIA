@@ -59,10 +59,15 @@ class TanksForm(FlaskForm):
 ############### submit tests ########################
 
 def tank_query():
-    return Tanks.query
-    
+    tanks=Tanks.query.all()
+    options = []
+    for item in Tanks:
+        name = item.name
+        option.append(name)
+    return options
+
 class TestsForm(FlaskForm):
-    tank_name = QuerySelectField(query_factory=tank_query, allow_blank=False)
+    tank_name = SelectField("Tanks",choices=tank_query())
 
     ammonia = DecimalField('Ammonia',
         places=2, rounding=None)
