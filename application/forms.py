@@ -63,7 +63,7 @@ def tank_query():
     options = []
     for item in tanks:
         name = item.name
-        options[].append(name)
+        options.append(name)
     return options
 
 class TestsForm(FlaskForm):
