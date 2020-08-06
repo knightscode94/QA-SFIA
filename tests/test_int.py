@@ -8,7 +8,7 @@ from flask_testing import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from application import app, db
-from application.models import Users, Tanks
+from application.models import Tanks, Users
 
 test_admin_first_name = "admin"
 test_admin_last_name = "admin"
@@ -49,7 +49,7 @@ class TestRegistration(TestBase):
         redirected to the login page
         """
         # Click register menu link
-        self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[2]").click()
+        self.driver.find_element_by_xpath("/html/body/a[3]").click()
         time.sleep(1)
         # Fill in registration form
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
@@ -57,16 +57,21 @@ class TestRegistration(TestBase):
             test_admin_first_name)
         self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(
             test_admin_last_name)
+        self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(
+            test_admin_password)
+        self.driver.find_element_by_xpath('//*[@id="confirm_password"]').send_keys(
+            test_admin_password)
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
         time.sleep(1)
-        # Assert that browser redirects to home page
-        assert url_for('home') in self.driver.current_url
+        # Assert that browser redirects to login page
+        assert url_for('login') in self.driver.current_url
 
 class TestLogin(TestBase):
     def test_login(self):
         self.driver.find_element_by_xpath("/html/body/a[3]").click()
         time.sleep(1)
-                # Fill in registration form
+
+        # Fill in registration form
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
         self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(
             test_admin_first_name)
