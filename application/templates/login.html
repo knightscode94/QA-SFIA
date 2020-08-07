@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% block body_content %}
+<p>Log in here</p>
 <div class='form'>
     <form method='POST' action=''>
         {{ form.hidden_tag() }}
@@ -14,10 +15,10 @@
             </div>
             {% endif %}
         </div>
+        <br>
         <div class='form_group'>
             {{ form.submit }}
         </div>
-        <br>
-        <div class='logout'>
-        </div>
-        {% endblock %}
+    </form>
+</div>
+{% endblock %}
