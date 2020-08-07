@@ -4,7 +4,7 @@ from flask import url_for
 from urllib.request import urlopen
 
 from os import getenv
-from flask_testing import LiveServerTestCase
+from flask_testing import TestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from application import app, db
