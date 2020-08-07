@@ -62,7 +62,7 @@ class TestRegistration(TestBase):
         # Assert that browser redirects to home page
         assert url_for('home') in self.driver.current_url
 
-'''
+
 class TestLogin(TestBase):
     def test_login(self):
         self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[3]").click()
@@ -72,6 +72,6 @@ class TestLogin(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()        
         time.sleep(2)
         assert url_for('home') in self.driver.current_url
-'''
+
 if __name__ == '__main__':
     unittest.main(port=5000)
