@@ -41,8 +41,8 @@ def login():
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = Users.query.filter_by(email=form.email.data).first()
-        login_user(user)
+            user = Users.query.filter_by(email=form.email.data).first()
+            login_user(user)
     return render_template('login.html', title='Login', form=form)
 
 ### update account ####
