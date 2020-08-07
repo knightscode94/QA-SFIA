@@ -113,3 +113,16 @@ class TestRegistration(TestBase):
             follow_redirects=True)
         response=self.client.get('login')
         self.assertIn(b'Login',response.data)
+
+class TestRegLogin(TestBase):
+    def test_reglogin(self):
+        self.client.post(
+                url_for('login'),
+                data=dict(
+                    email='admin@admin.com'),
+                follow_redirects=True)
+        response = self.client.post(
+            url_for('register'),
+            follow_redirects=True)
+        self.client.get(url_for('home'))
+        self.assertIn(b'Account',response.data) 
