@@ -75,3 +75,15 @@ class TestTanks(TestBase):
                     nitrite=2),
                 follow_redirects=True)
             self.assertIn(b'Fishy Tank', response.data)
+
+class TestLogout(TestBase):
+    def test_logout(self):
+        self.client.post(
+                url_for('login'),
+                data=dict(
+                    email='admin@admin.com'),
+                follow_redirects=True)
+        self.client.post(url_for('account'),
+                follow_redirects=True)
+        response = self.client.get(url_for('account'))
+        self.assertIn(b'admin',response.data)
