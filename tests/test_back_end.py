@@ -87,3 +87,29 @@ class TestLogout(TestBase):
                 follow_redirects=True)
         response = self.client.get(url_for('account'))
         self.assertIn(b'admin',response.data)
+
+class TestDelete(TestBase):
+    def test_delete_account(self):
+        self.client.post(
+                url_for('login'),
+                data=dict(
+                    email='admin@admin.com'),
+                follow_redirects=True)
+        self.client.post(url_for('account'),
+                follow_redirects=True)
+        self.client.post(url_for('account_delete'),
+                follow_redirects=True)
+        response = self.client.get(url_for('login'))
+        self.assertIn(b'Login',response.data)
+
+class TestRegistration(TestBase):
+    def test_register_account(self):
+        self.client.post(
+            url_for('register'),
+            data=dict(
+                first_name='Tobias',
+                last_name='Jackson',
+                email='tj@tj.com'),
+            follow_redirects=True)
+        response=self.client.get('login')
+        self.assertIn(b'Login',response.data)
