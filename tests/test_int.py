@@ -65,9 +65,6 @@ class TestRegistration(TestBase):
 
 class TestLogin(TestBase):
     def test_login(self):
-        # click logout
-        self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[5]").click()
-        time.sleep(1)
         #click login
         self.driver.find_element_by_xpath("/html/body/strong/nav/ul/a[3]").click()
         time.sleep(1)
