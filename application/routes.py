@@ -42,10 +42,9 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = Users.query.filter_by(email=form.email.data).first()
-        if user.email == form.email.data:
-            login_user(user)
-            next_page = request.args.get('next')
-            if next_page:
+         login_user(user)
+          next_page = request.args.get('next')
+           if next_page:
                 return redirect(next_page)
             else:
                 return redirect(url_for('home'))
