@@ -49,7 +49,7 @@ class TestViews(TestBase):
         """
         response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
-'''
+
 class TestTanks(TestBase):
 
     def test_add_new_tank(self):
@@ -67,4 +67,4 @@ class TestTanks(TestBase):
                 follow_redirects=True
             )
             self.assertIn(b'Fishy Tank', response.data)
-'''
+
