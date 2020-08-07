@@ -63,9 +63,9 @@ class TestTanks(TestBase):
             self.client.post(
                 url_for('login'),
                 data=dict(
-                    email='admin@admin.com', ,
+                    email='admin@admin.com'),
                 follow_redirects=True)
-            response=self.client.post(
+            response = self.client.post(
                 url_for('tanks'),
                 data=dict(
                     name="Fishy Tank",
