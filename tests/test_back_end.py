@@ -5,6 +5,7 @@ from application import app, db
 from application.models import Users, Tanks
 from os import getenv
 
+
 class TestBase(TestCase):
 
     def create_app(self):
@@ -25,10 +26,12 @@ class TestBase(TestCase):
         db.create_all()
 
         # create test admin user
-        test1 = Users(first_name="admin", last_name="admin", email="admin@admin.com")
+        test1 = Users(first_name="admin", last_name="admin",
+                      email="admin@admin.com")
 
         # create test non-admin user
-        test2 = Users(first_name="test", last_name="user", email="test@user.com")
+        test2 = Users(first_name="test", last_name="user",
+                      email="test@user.com")
 
         # save users to database
         db.session.add(test1)
@@ -37,9 +40,10 @@ class TestBase(TestCase):
 
     def tearDown(self):
 
-        ##Will be called after every test
+        # Will be called after every test
         db.session.remove()
         db.drop_all()
+
 
 class TestViews(TestBase):
 
@@ -50,21 +54,24 @@ class TestViews(TestBase):
         response = self.client.get(url_for('home'))
         self.assertEqual(response.status_code, 200)
 
+
 class TestTanks(TestBase):
 
     def test_add_new_tank(self):
 
         with self.client:
-            response = self.client.post(
-                '/tanks',
+            self.client.post(
+                url_for('login'),
+                data=dict(
+                    email='admin@admin.com', ,
+                follow_redirects=True)
+            response=self.client.post(
+                url_for('tanks'),
                 data=dict(
                     name="Fishy Tank",
                     description="",
                     ammonia=0.1,
                     nitrate=0,
-                    nitrite=2
-                ),
-                follow_redirects=True
-            )
+                    nitrite=2),
+                follow_redirects=True)
             self.assertIn(b'Fishy Tank', response.data)
-
