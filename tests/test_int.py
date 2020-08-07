@@ -72,6 +72,18 @@ class TestLogin(TestBase):
         self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()        
         time.sleep(2)
+        # Fill in registration form
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
+        self.driver.find_element_by_xpath('//*[@id="first_name"]').send_keys(
+            test_admin_first_name)
+        self.driver.find_element_by_xpath('//*[@id="last_name"]').send_keys(
+            test_admin_last_name)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+        time.sleep(1)
+        #fill in info
+        self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(test_admin_email)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()        
+        time.sleep(2)
         # Assert that browser redirects to home page
         assert url_for('home') in self.driver.current_url
 
