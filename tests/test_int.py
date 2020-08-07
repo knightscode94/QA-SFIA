@@ -4,7 +4,7 @@ from flask import url_for
 from urllib.request import urlopen
 
 from os import getenv
-from flask_testing import TestCase
+from flask_testing import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from application import app, db
@@ -14,7 +14,7 @@ test_admin_first_name = "admin"
 test_admin_last_name = "admin"
 test_admin_email = "admin@email.com"
 
-class TestBase(TestCase):
+class TestBase(LiveServerTestCase):
 
     def create_app(self):
         app.config['SQLALCHEMY_DATABASE_URI'] = str(getenv('TEST_DATABASE'))
