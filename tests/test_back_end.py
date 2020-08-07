@@ -59,8 +59,8 @@ class TestTanks(TestBase):
                 '/tanks',
                 data=dict(
                     name="Fishy Tank",
-                    description="Test Tank",
-                    ammonia=0.01,
+                    description="",
+                    ammonia=0.1,
                     nitrate=0,
                     nitrite=2
                 ),
