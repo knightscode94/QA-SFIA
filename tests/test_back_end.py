@@ -58,7 +58,7 @@ class TestTanks(TestBase):
             response = self.client.post(
                 '/tanks',
                 data=dict(
-                    name="Fisy Tank",
+                    name="Fishy Tank",
                     description="Test Tank",
                     ammonia=0.01,
                     nitrate=0,
