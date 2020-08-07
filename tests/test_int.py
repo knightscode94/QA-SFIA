@@ -14,7 +14,7 @@ test_admin_first_name = "admin"
 test_admin_last_name = "admin"
 test_admin_email = "admin@email.com"
 
-class TestBase(LiveServerTestCase):
+class TestBase(TestCase):
 
     def create_app(self):
         app.config['SQLALCHEMY_DATABASE_URI'] = str(getenv('TEST_DATABASE'))
