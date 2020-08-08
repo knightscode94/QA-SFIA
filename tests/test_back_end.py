@@ -83,9 +83,9 @@ class TestLogout(TestBase):
                 data=dict(
                     email='admin@admin.com'),
                 follow_redirects=True)
-        self.client.post(url_for('account'),
+        self.client.post(url_for('logout'),
                 follow_redirects=True)
-        response = self.client.get(url_for('account'))
+        response = self.client.get(url_for('login'))
         self.assertIn(b'admin',response.data)
 
 class TestDelete(TestBase):
