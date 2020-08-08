@@ -27,7 +27,7 @@
   - [Risk Assessment](#risk-assessment)
   - [Known Issues](#known-issues)
   - [Future Optimisation](#future-optimisation)
-- [Authors](#authors)
+- [Author](#author)
 
 
 
@@ -44,7 +44,12 @@ A more enviromentally friendly way to keep track of how your awauriums are doing
 
 ### Requirements
 
+For my project to be successful I need to create a CRUD able project this means it needs a CREATE READ UPDATE and DELETE. I met this by CREATING users and tanks with tests, READING the results from the tank tests on the home page, UPDATING and Reading the users information in account and finally DELETING the user and all the tests they carried out.
+
 ## Project Approach
+my project went under a redesign last minute as I wanted a working app over having something fancy. initially i was going to use three tables but had issues joining the tests to the tanks so went to having the tests connected to the tanks in one table, it isnt the most efficient but can be imporved in later stages and can be developed.
+
+I started by creating the back end to include everything I needed then worked on the users, tanks with testing then submitting to home page.
 
 ## Project Architecture
 
@@ -55,10 +60,49 @@ A more enviromentally friendly way to keep track of how your awauriums are doing
 ### Front End Development
 
 ## Testing
+here is my cov report of my app
+
+----------- coverage: platform linux, python 3.6.9-final-0 -----------
+Name                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------
+application/__init__.py      12      0   100%
+application/forms.py         35      5    86%   33, 91-94
+application/models.py        22      0   100%
+application/routes.py        74     14    81%   41, 49, 53, 64-68, 94, 102-103, 115-117
+-------------------------------------------------------
+TOTAL                       143     19    87%
+
+### To get 100%
+## forms.py:
+test email already in use functionality
+
+## routes.py:
+login - redirect if user already logged in, if user is not registered go to register
+update account - check user data is pulled from DB
+logout - check works
+delete - check all data related is deleted
 
 ### Unit Testing
+## Start of testing___
+Application setup export keys
+drop the tables and create the new tables
+create users and save to users table
+
+## During testing____
+standard test from tutorial test home page is visable
+test you can create a tank with test information
+test a user can logout
+delete a user and everything associated with user
+create a user with non auto input
+login using pre installed data
+
+## End of testing___
+Delete tables
 
 ### Functional Testing
+test server is running
+from tutorials create a user
+test login redirects to register if user doesnt exist and log in user after registration
 
 ### UI Testing with Selenium.
 
