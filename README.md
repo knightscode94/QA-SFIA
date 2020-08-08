@@ -68,9 +68,9 @@ Name                      Stmts   Miss  Cover   Missing
 application/__init__.py      12      0   100%
 application/forms.py         35      5    86%   33, 91-94
 application/models.py        22      0   100%
-application/routes.py        74     14    81%   41, 49, 53, 64-68, 94, 102-103, 115-117
+application/routes.py        74     17    77%   41, 49, 53, 64-68, 70-72, 94, 102-103, 115-117
 -------------------------------------------------------
-TOTAL                       143     19    87%
+TOTAL                       143     22    85%
 
 ### To get 100%
 ## forms.py:
