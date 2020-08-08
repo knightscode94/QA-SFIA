@@ -85,8 +85,8 @@ class TestLogout(TestBase):
                 follow_redirects=True)
         self.client.post(url_for('logout'),
                 follow_redirects=True)
-        response = self.client.get(url_for('login'))
-        self.assertIn(b'admin',response.data)
+        response=self.client.get('login')
+        self.assertIn(b'Login',response.data)
 
 class TestDelete(TestBase):
     def test_delete_account(self):
