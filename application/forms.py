@@ -55,12 +55,6 @@ class TanksForm(FlaskForm):
 
     submit = SubmitField('Create Tank Test')
 
-    def validate_name(self, name):
-        tanks = Tanks.query.filter_by(name=name.data).first()
-
-        if tanks:
-            raise ValidationError('Name already in use')
-
 ################ login form ##################
 
 
