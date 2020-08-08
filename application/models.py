@@ -7,7 +7,7 @@ from datetime import datetime
 
 class Tanks(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
-    name = db.Column(db.String(25), nullable=True, unique=True)
+    name = db.Column(db.String(25), nullable=True)
     description = db.Column(db.String(100), nullable=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     ammonia = db.Column(db.Float, nullable=False)
