@@ -61,17 +61,16 @@ I started by creating the back end to include everything I needed then worked on
 my front end uses flask as my primary development implamentation due to its ease of use and the many external plugin libraries it offers, i havent added any css code yet that will be for future development but the front end is intuitive and easily readable and designed so even the least tech savy users can use it. Flask is a front end web development program designed to code in python. I could of used DJANGO which offers more support but is known to be more complex than flask especially for new users such as myself.
 
 ## Testing
-here is my cov report of my app
+*here is my cov report of my app*
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/TESTS.png)
 
-
-### To get 100%
-## forms.py:
+**To get 100%**
+*forms.py:*
 test email already in use functionality
 
-## routes.py:
+*routes.py:*
 login - redirect if user already logged in, if user is not registered go to register
 update account - check user data is pulled from DB
-logout - check works
 delete - check all data related is deleted
 
 ### Unit Testing
