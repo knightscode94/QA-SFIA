@@ -1,9 +1,8 @@
 [//]: # (Implicit Links Within Project)
 
 [1]: https://docs.google.com/spreadsheets/d/1C1NilfOavO-xX1UOnmB7djAXTZ_X5EZ-cNiQfMzb8rI/edit?usp=sharing   "Risk Assessment"
-[2]: https://docs.google.com/presentation/d/1BL5r35I7me4MSkJispzxlc57zhBZT7YtfSIj4wbV7tA/edit?usp=sharing   "Presentation"
-[3]: https://team-1579095236068.atlassian.net/jira/your-work   "JIRA Project"
-[4]: https://www.bma.org.uk/advice-and-support/nhs-delivery-and-workforce/workforce/mental-health-workforce-report   "mental health workforce report"
+[2]: https://docs.google.com/presentation/d/1BL5r35I7me4MSkJispzxlc57zhBZT7YtfSIj4wbV7tA/edit?usp=sharing   "ERD"
+[3]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
 
 
 # Aquarium water test logger
@@ -62,15 +61,12 @@ I started by creating the back end to include everything I needed then worked on
 ## Testing
 here is my cov report of my app
 
------------ coverage: platform linux, python 3.6.9-final-0 -----------
 Name                      Stmts   Miss  Cover   Missing
--------------------------------------------------------
 application/__init__.py      12      0   100%
 application/forms.py         35      5    86%   33, 91-94
 application/models.py        22      0   100%
-application/routes.py        74     17    77%   41, 49, 53, 64-68, 70-72, 94, 102-103, 115-117
--------------------------------------------------------
-TOTAL                       143     22    85%
+application/routes.py        74     15    80%   41, 49, 53, 64-68, 70-72, 94, 115-117
+TOTAL                       143     20    86%
 
 ### To get 100%
 ## forms.py:
@@ -106,23 +102,20 @@ test login redirects to register if user doesnt exist and log in user after regi
 
 ### UI Testing with Selenium.
 
-Selenium is a web browser automation tool that supports the most popular web browsers, across Windows, MacOS and Linux.
+Selenium is a web browser automation tool that supports the most web browsers, across Windows, MacOS and Linux.
 
->> Permission to name this testing framework the “Mi-Guel” test framework.
->> I found my solution after reading Miguel Grinberg’s Flask Web Development (2nd edition). 
-
-Selenium requires a 'web driver' to run tests within a web browser.
-
->> Additional credit goes to the ‘GOAT’: TDD with Python (2nd edition), written by Harry J.W. Percival.
+Selenium requires a web driver such as chromedriver to run tests within a web browser for my tests i used chrome.
 
 
 ## Project Management
 
 ## Project Review
+for the first version of my application I am happy weith how things have turned out, if i develop this further I will look into splitting my tables into 3, tanks users and tests, until then I will probable add a search feature so that you can reduce the home page data down to date, tank or who completed the test.
 
 ## Risk Assessment
 
 ### Known Issues
+if nitrate, nitrite and ammonia are not filled in the app doesnt respond with an error, this is easily fixed by adding adding a validator into the forms, the app doesnt crash just does nothing. I had not fixed this yet due to the time it took to get the float system in place.
 
 ## Author
 
