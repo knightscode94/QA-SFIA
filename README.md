@@ -47,6 +47,8 @@ my project went under a redesign last minute as I wanted a working app over havi
 I started by creating the back end to include everything I needed then worked on the users, tanks with testing then submitting to home page.
 
 ## Project Architecture
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/Jenkins%20build.png)
+
 
 ### Database Structure
 ![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png)
