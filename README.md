@@ -71,13 +71,13 @@ login - redirect if user already logged in, if user is not registered go to regi
 update account - check user data is pulled from DB
 delete - check all data related is deleted
 
-### Unit Testing
-## Start of testing___
+## Unit Testing
+### Start of testing___
 Application setup export keys
 drop the tables and create the new tables
 create users and save to users table
 
-## During testing____
+### During testing____
 standard test from tutorial test home page is visable
 test you can create a tank with test information
 test a user can logout
@@ -85,7 +85,7 @@ delete a user and everything associated with user
 create a user with non auto input
 login using pre installed data
 
-## End of testing___
+### End of testing___
 Delete tables
 
 ### Functional Testing
