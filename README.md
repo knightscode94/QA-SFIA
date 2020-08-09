@@ -55,6 +55,9 @@ I started by creating the back end to include everything I needed then worked on
 ![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/ERD.png)
 
 ### CI Pipeline
+my pipline is set up using VSCode as my writing program, this has allowed me to keep track of my progress and set up. I then used git as my version control tracking system, this is my developers stage.
+
+my devops stage is where I wrote code that tests my application and builds it using jenkins, if the tests are successful jenkins will automatically push the code up to be created and will create the application using gunicorn and systemd service. This means that any code that is developed will automatically go through the testing and building and can be done in less than a minute, obviously if more features are added then more tests have to be created.
 
 ### Front End Development
 my front end uses flask as my primary development implamentation due to its ease of use and the many external plugin libraries it offers, i havent added any css code yet that will be for future development but the front end is intuitive and easily readable and designed so even the least tech savy users can use it. Flask is a front end web development program designed to code in python. I could of used DJANGO which offers more support but is known to be more complex than flask especially for new users such as myself.
@@ -105,6 +108,7 @@ Selenium requires a web driver such as chromedriver to run tests within a web br
 for the first version of my application I am happy weith how things have turned out, if i develop this further I will look into splitting my tables into 3, tanks users and tests, until then I will probable add a search feature so that you can reduce the home page data down to date, tank or who completed the test.
 
 ## Risk Assessment
+
 
 ### Known Issues
 if nitrate, nitrite and ammonia are not filled in the app doesnt respond with an error, this is easily fixed by adding adding a validator into the forms, the app doesnt crash just does nothing. I had not fixed this yet due to the time it took to get the float system in place.
