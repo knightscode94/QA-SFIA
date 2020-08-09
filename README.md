@@ -3,7 +3,7 @@
 [1]: https://docs.google.com/spreadsheets/d/1C1NilfOavO-xX1UOnmB7djAXTZ_X5EZ-cNiQfMzb8rI/edit?usp=sharing   "Risk Assessment"
 [2]: https://github.com/knightscode94/QA-SFIA/blob/master/ERD.png   "ERD"
 [3]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
-[4]: "DB"
+[4]: https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png "DB"
 
 # Aquarium water test logger
 
@@ -54,7 +54,7 @@ I started by creating the back end to include everything I needed then worked on
 ## Project Architecture
 
 ### Database Structure
-
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png)
 ### CI Pipeline
 
 ### Front End Development
