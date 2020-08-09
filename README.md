@@ -63,12 +63,6 @@ my front end uses flask as my primary development implamentation due to its ease
 ## Testing
 here is my cov report of my app
 
-Name                      Stmts   Miss  Cover   Missing
-application/__init__.py      12      0   100%
-application/forms.py         35      5    86%   33, 91-94
-application/models.py        22      0   100%
-application/routes.py        74     15    80%   41, 49, 53, 64-68, 70-72, 94, 115-117
-TOTAL                       143     20    86%
 
 ### To get 100%
 ## forms.py:
