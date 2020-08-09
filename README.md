@@ -108,9 +108,6 @@ Selenium is a web browser automation tool that supports the most web browsers, a
 
 Selenium requires a web driver such as chromedriver to run tests within a web browser for my tests i used chrome.
 
-
-## Project Management
-
 ## Project Review
 for the first version of my application I am happy weith how things have turned out, if i develop this further I will look into splitting my tables into 3, tanks users and tests, until then I will probable add a search feature so that you can reduce the home page data down to date, tank or who completed the test.
 
