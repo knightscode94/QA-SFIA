@@ -1,7 +1,6 @@
 [//]: # (Implicit Links Within Project)
 
-[1]: https://docs.google.com/spreadsheets/d/1C1NilfOavO-xX1UOnmB7djAXTZ_X5EZ-cNiQfMzb8rI/edit?usp=sharing   "Risk Assessment"
-[2]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
+[1]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
 
 
 # Aquarium water test logger
@@ -34,8 +33,7 @@ A more enviromentally friendly way to keep track of how your awauriums are doing
 
 ### Resources
 
-- [RISKS][1]
-- [JIRA][2]
+- [JIRA][1]
 
 ### Requirements
 
@@ -108,7 +106,7 @@ Selenium requires a web driver such as chromedriver to run tests within a web br
 for the first version of my application I am happy weith how things have turned out, if i develop this further I will look into splitting my tables into 3, tanks users and tests, until then I will probable add a search feature so that you can reduce the home page data down to date, tank or who completed the test.
 
 ## Risk Assessment
-
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/risk.png)
 
 ### Known Issues
 if nitrate, nitrite and ammonia are not filled in the app doesnt respond with an error, this is easily fixed by adding adding a validator into the forms, the app doesnt crash just does nothing. I had not fixed this yet due to the time it took to get the float system in place.
