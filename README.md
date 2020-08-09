@@ -45,6 +45,16 @@ my project went under a redesign last minute as I wanted a working app over havi
 I started by creating the back end to include everything I needed then worked on the users, tanks with testing then submitting to home page.
 
 ## Project Architecture
+Kanban Board: Trello or an equivalent Kanban Board
+Database: GCP SQL Server or other Cloud Hosted managed Database.
+Programming language: Python
+Unit Testing with Python (Pytest)
+Integration Testing with Python (Selenium)
+Front-end: Flask (HTML)
+Version Control: Git
+CI Server: Jenkins
+Cloud server: GCP Compute Engine
+
 ![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/Jenkins%20build.png)
 
 
