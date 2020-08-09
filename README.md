@@ -47,12 +47,12 @@ my project went under a redesign last minute as I wanted a working app over havi
 I started by creating the back end to include everything I needed then worked on the users, tanks with testing then submitting to home page.
 
 ## Project Architecture
-![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/Jenkins%20build.png)
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/Jenkins%20build.png)
 
 
 ### Database Structure
-![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png)
-![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/ERD.png)
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/DB%20structure.png)
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/ERD.png)
 
 ### CI Pipeline
 
@@ -62,7 +62,7 @@ my front end uses flask as my primary development implamentation due to its ease
 ## Testing
 Here is my cov report of my application
 
-![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/TESTS.png)
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/documentation/TESTS.png)
 
 ### To get 100%
 forms.py:
