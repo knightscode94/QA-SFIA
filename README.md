@@ -21,11 +21,9 @@
 - [Testing](#testing)
  - [Unit Testing](#unit-testing)
  - [Functional Testing](#functional-testing)
-- [Project Management](#project-management)
 - [Project Review](#project-review)
   - [Risk Assessment](#risk-assessment)
   - [Known Issues](#known-issues)
-  - [Future Optimisation](#future-optimisation)
 - [Author](#author)
 
 
@@ -55,6 +53,8 @@ I started by creating the back end to include everything I needed then worked on
 
 ### Database Structure
 ![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png)
+![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/ERD.png)
+
 ### CI Pipeline
 
 ### Front End Development
