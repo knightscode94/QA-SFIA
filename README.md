@@ -1,9 +1,8 @@
 [//]: # (Implicit Links Within Project)
 
 [1]: https://docs.google.com/spreadsheets/d/1C1NilfOavO-xX1UOnmB7djAXTZ_X5EZ-cNiQfMzb8rI/edit?usp=sharing   "Risk Assessment"
-[2]: https://github.com/knightscode94/QA-SFIA/blob/master/ERD.png   "ERD"
-[3]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
-[4]: https://github.com/knightscode94/QA-SFIA/blob/master/DB%20structure.png "DB"
+[2]: https://knightscode94.atlassian.net/secure/RapidBoard.jspa?rapidView=4&projectKey=FP&selectedIssue=FP-8  "JIRA Project"
+
 
 # Aquarium water test logger
 
@@ -36,9 +35,7 @@ A more enviromentally friendly way to keep track of how your awauriums are doing
 ### Resources
 
 - [RISKS][1]
-- [ERD][2]
-- [JIRA][3]
-- [DB][4]
+- [JIRA][2]
 
 ### Requirements
 
@@ -61,7 +58,8 @@ I started by creating the back end to include everything I needed then worked on
 my front end uses flask as my primary development implamentation due to its ease of use and the many external plugin libraries it offers, i havent added any css code yet that will be for future development but the front end is intuitive and easily readable and designed so even the least tech savy users can use it. Flask is a front end web development program designed to code in python. I could of used DJANGO which offers more support but is known to be more complex than flask especially for new users such as myself.
 
 ## Testing
-Here is my cov report of my app
+Here is my cov report of my application
+
 ![alt text](https://github.com/knightscode94/QA-SFIA/blob/master/TESTS.png)
 
 ### To get 100%
