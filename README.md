@@ -124,4 +124,4 @@ if nitrate, nitrite and ammonia are not filled in the app doesnt respond with an
 ## Author
 
 **Tobias Jackson**
-
+ show working
